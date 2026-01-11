@@ -1,1 +1,3 @@
 ### JENKINS TUTORIAL
+
+- v1.0.0
