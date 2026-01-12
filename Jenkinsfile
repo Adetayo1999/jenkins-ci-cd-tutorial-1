@@ -25,7 +25,7 @@ pipeline {
 
      post {
     success {
-      slackSend  message: "✅ SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+      slackSend  message: "✅ Build was good: ${env.JOB_NAME} #${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
     }
     failure {
       slackSend  message: "❌ FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
