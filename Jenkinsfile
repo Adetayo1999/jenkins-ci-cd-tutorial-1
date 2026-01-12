@@ -22,4 +22,19 @@ pipeline {
         }
 
      }
+
+     post {
+    success {
+      slackSend  message: "✅ SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+    }
+    failure {
+      slackSend  message: "❌ FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+    }
+    unstable {
+      slackSend  message: "⚠️ UNSTABLE: ${env.JOB_NAME} #${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+    }
+    aborted {
+      slackSend  message: "🛑 ABORTED: ${env.JOB_NAME} #${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+    }
+  }
 }
